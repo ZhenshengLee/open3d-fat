@@ -26,6 +26,8 @@
 
 #pragma once
 
+// CBLAS_LAYOUT
+#include "cblas-netlib.h"
 #include "open3d/core/linalg/LinalgHeadersCPU.h"
 #include "open3d/core/linalg/LinalgHeadersCUDA.h"
 #include "open3d/utility/Console.h"

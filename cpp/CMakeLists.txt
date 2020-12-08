@@ -4,7 +4,8 @@ function(open3d_show_and_abort_on_warning trgt)
         if (CMAKE_CUDA_COMPILER_VERSION VERSION_LESS "10.2")
             set(CUDA_FLAGS "--compiler-options -Wall --compiler-options -Werror --Werror cross-execution-space-call,reorder,deprecated-declarations")
         else()
-            set(CUDA_FLAGS "--Werror all-warnings,cross-execution-space-call,reorder,deprecated-declarations")
+            # set(CUDA_FLAGS "--Werror all-warnings,cross-execution-space-call,reorder,deprecated-declarations")
+            set(CUDA_FLAGS "--Werror cross-execution-space-call,reorder,deprecated-declarations")
         endif()
     else()
         set(CUDA_FLAGS "")
@@ -12,9 +13,11 @@ function(open3d_show_and_abort_on_warning trgt)
 
     target_compile_options(${trgt} PRIVATE
         $<$<COMPILE_LANGUAGE:C>:$<$<CXX_COMPILER_ID:MSVC>:/W3>>
-        $<$<COMPILE_LANGUAGE:C>:$<$<CXX_COMPILER_ID:GNU,Clang,AppleClang,Intel>:-Wall -Werror>>
+        # $<$<COMPILE_LANGUAGE:C>:$<$<CXX_COMPILER_ID:GNU,Clang,AppleClang,Intel>:-Wall -Werror>>
+        $<$<COMPILE_LANGUAGE:C>:$<$<CXX_COMPILER_ID:GNU,Clang,AppleClang,Intel>:-Wall>>
         $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:MSVC>:/W3>>
-        $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:GNU,Clang,AppleClang,Intel>:-Wall -Werror>>
+        # $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:GNU,Clang,AppleClang,Intel>:-Wall -Werror>>
+        $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:GNU,Clang,AppleClang,Intel>:-Wall>>
         $<$<COMPILE_LANGUAGE:CUDA>:SHELL:${CUDA_FLAGS}>
     )
 endfunction()

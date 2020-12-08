@@ -114,7 +114,7 @@ public:
     /// \brief Transform the Line3D by the given matrix
     virtual void Transform(
             const Eigen::Transform<double, 3, Eigen::Affine>& t) {
-        this->transform(t);
+        this->Transform(t);
     }
 
     /// \brief Returns a const reference to the underlying
@@ -371,7 +371,7 @@ public:
     /// \brief Transform the segment by the given matrix
     void Transform(
             const Eigen::Transform<double, 3, Eigen::Affine>& t) override {
-        this->transform(t);
+        this->Transform(t);
         end_point_ = t * end_point_;
     }
 

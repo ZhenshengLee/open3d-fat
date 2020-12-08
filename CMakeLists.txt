@@ -21,7 +21,7 @@ option(BUILD_EXAMPLES             "Build Open3D examples programs"           ON 
 option(BUILD_UNIT_TESTS           "Build Open3D unit tests"                  OFF)
 option(BUILD_BENCHMARKS           "Build the micro benchmarks"               OFF)
 option(BUILD_PYTHON_MODULE        "Build the python module"                  ON )
-option(BUILD_CUDA_MODULE          "Build the CUDA module"                    ON)
+option(BUILD_CUDA_MODULE          "Build the CUDA module"                    OFF)
 option(BUILD_CACHED_CUDA_MANAGER  "Build the cached CUDA memory manager"     ON )
 option(BUILD_GUI                  "Builds new GUI"                           ON )
 option(BUILD_JUPYTER_EXTENSION    "Enable Jupyter support for Open3D"        OFF)
