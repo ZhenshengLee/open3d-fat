@@ -168,19 +168,32 @@ endif ()
 
 if ( BUNDLE_OPEN3D_ML )
 
-    find_path(
-        OPEN3D_ML_ROOT
-        NAMES set_open3d_ml_root.sh
-        HINTS $ENV{OPEN3D_ML_ROOT}
-        DOC "Path to the Open3D-ML repo. This should be set if BUNDLE_OPEN3D_ML is enabled. Alternatively set an env var with the same name to populate this var."
-        REQUIRED
-        NO_DEFAULT_PATH
-    )
+    # find_path(
+    #     OPEN3D_ML_ROOT
+    #     NAMES set_open3d_ml_root.sh
+    #     HINTS $ENV{OPEN3D_ML_ROOT}
+    #     DOC "Path to the Open3D-ML repo. This should be set if BUNDLE_OPEN3D_ML is enabled. Alternatively set an env var with the same name to populate this var."
+    #     REQUIRED
+    #     NO_DEFAULT_PATH
+    # )
+    # ExternalProject_Add(
+    #     open3d_ml
+    #     PREFIX "${CMAKE_BINARY_DIR}/open3d_ml"
+    #     GIT_REPOSITORY "${OPEN3D_ML_ROOT}"
+    #     BUILD_IN_SOURCE ON
+    #     # do not configure
+    #     CONFIGURE_COMMAND ""
+    #     # do not build
+    #     BUILD_COMMAND ""
+    #     # do not install
+    #     INSTALL_COMMAND ""
+    #     )
 
+    set(OPEN3D_ML_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/Open3D-ML)
     ExternalProject_Add(
         open3d_ml
         PREFIX "${CMAKE_BINARY_DIR}/open3d_ml"
-        GIT_REPOSITORY "${OPEN3D_ML_ROOT}"
+        SOURCE_DIR "${OPEN3D_ML_ROOT}"
         BUILD_IN_SOURCE ON
         # do not configure
         CONFIGURE_COMMAND ""

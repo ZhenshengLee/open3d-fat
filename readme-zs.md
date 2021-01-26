@@ -1,4 +1,6 @@
-# open3d-cuda-zs
+# open3d
+
+open3d-0.11.2+ml-0.12.1
 
 ## 环境
 
