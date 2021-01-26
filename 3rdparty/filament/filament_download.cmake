@@ -29,10 +29,20 @@ else()
     endif()
 
     # ExternalProject_Add happens at build time.
+    # ExternalProject_Add(
+    #     ext_filament
+    #     PREFIX filament
+    #     URL ${DOWNLOAD_URL_PRIMARY} ${DOWNLOAD_URL_FALLBACK}
+    #     UPDATE_COMMAND ""
+    #     CONFIGURE_COMMAND ""
+    #     BUILD_IN_SOURCE ON
+    #     BUILD_COMMAND ""
+    #     INSTALL_COMMAND ""
+    # )
     ExternalProject_Add(
         ext_filament
         PREFIX filament
-        URL ${DOWNLOAD_URL_PRIMARY} ${DOWNLOAD_URL_FALLBACK}
+        SOURCE_DIR ${Open3D_3RDPARTY_DIR}/filament/filament-1.9.5
         UPDATE_COMMAND ""
         CONFIGURE_COMMAND ""
         BUILD_IN_SOURCE ON
