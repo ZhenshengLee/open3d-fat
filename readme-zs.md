@@ -21,6 +21,12 @@ Open3D/cpp/open3d/core/linalg/BlasWrapper.h
 #include "open3d/core/linalg/LinalgHeadersCPU.h"
 ```
 
+### jetson
+
+```sh
+sudo apt remove --purge libfmt-dev ros-melodic-rosfmt
+```
+
 ### 构建
 
 ```sh
